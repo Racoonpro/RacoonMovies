@@ -1,8 +1,16 @@
+using Racoon.Moovies.DbContext;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder
+    .Services
+    .AddLogging();
+
+builder.Services.RegisterInMemoryDb();
+
 
 var app = builder.Build();
 

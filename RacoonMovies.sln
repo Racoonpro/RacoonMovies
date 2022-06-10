@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6657576E-D56
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Racoon.Movies.Web", "src\Mvies.Web\Racoon.Movies.Web.csproj", "{F8A054C0-D525-4159-A6E1-0FC331AC7DFC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{CAD1B922-AE3E-412C-B7FF-86E2D604221D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Racoon.Moovies.DbContext", "src\Data\Racoon.Moovies.DbContext\Racoon.Moovies.DbContext.csproj", "{49F9194C-D3F0-4A51-8584-655044567B7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,18 @@ Global
 		{F8A054C0-D525-4159-A6E1-0FC331AC7DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8A054C0-D525-4159-A6E1-0FC331AC7DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A054C0-D525-4159-A6E1-0FC331AC7DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F9194C-D3F0-4A51-8584-655044567B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F9194C-D3F0-4A51-8584-655044567B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F9194C-D3F0-4A51-8584-655044567B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F9194C-D3F0-4A51-8584-655044567B7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F8A054C0-D525-4159-A6E1-0FC331AC7DFC} = {6657576E-D56B-4AA8-9615-476DFBB9C143}
+		{CAD1B922-AE3E-412C-B7FF-86E2D604221D} = {6657576E-D56B-4AA8-9615-476DFBB9C143}
+		{49F9194C-D3F0-4A51-8584-655044567B7C} = {CAD1B922-AE3E-412C-B7FF-86E2D604221D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {989180F9-BC45-43B8-829C-01CEB885F89F}
