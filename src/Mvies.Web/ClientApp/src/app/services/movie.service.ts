@@ -10,7 +10,6 @@ export class MovieService {
     ) {}
 
     all = () :Observable<any[]> => {
-        return of(['Kirill', 'another name']);
-        // return this._http.get<any>('');
+        return this._http.get<any>('/api/movie/list');
     }
 } 

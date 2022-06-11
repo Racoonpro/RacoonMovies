@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
     const movies$ = this._movieSvc.all();
     movies$.subscribe(movies => {
       this.movies = movies;
+      console.info(this.movies);
     })
   }
 
