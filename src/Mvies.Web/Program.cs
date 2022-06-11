@@ -11,8 +11,11 @@ builder
 
 builder.Services.RegisterInMemoryDb();
 
-
 var app = builder.Build();
+app.Services
+    .GetService<RacoonMoviesDbContext>()!
+    .Database
+    .EnsureCreated();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -23,8 +26,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseRouting();
 
+app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",

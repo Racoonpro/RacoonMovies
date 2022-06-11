@@ -9,7 +9,8 @@ public static class DiExtensions
     {
         services
             .AddDbContext<RacoonMoviesDbContext>(
-                opts => opts.UseInMemoryDatabase(databaseName: "RacoonMovies")
+                opts => opts.UseInMemoryDatabase(databaseName: "RacoonMovies"),
+                ServiceLifetime.Singleton
             );
         return services;
     }

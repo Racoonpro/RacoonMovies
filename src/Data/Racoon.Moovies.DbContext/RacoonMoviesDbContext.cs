@@ -13,8 +13,8 @@ public class RacoonMoviesDbContext : Microsoft.EntityFrameworkCore.DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Movie>().HasData(
-            new Movie { Name = "Movie1", Description = "Description fo movie1", CreatedTime = DateTime.UtcNow, CreatedBy = "Kiryl" },
-            new Movie { Name = "Movie1", Description = "Description fo movie1", CreatedTime = DateTime.UtcNow, CreatedBy = "Kiryl" }
+            new Movie { Id = 1, Name = "Movie1", Description = "Description fo movie1", CreatedTime = DateTime.UtcNow, CreatedBy = "Kiryl" },
+            new Movie { Id = 2, Name = "Movie1", Description = "Description fo movie1", CreatedTime = DateTime.UtcNow, CreatedBy = "Kiryl" }
             );
     }
 
