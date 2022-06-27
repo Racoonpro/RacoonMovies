@@ -14,6 +14,13 @@ public class MovieController: ControllerBase
         _context = context;
     }
 
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetAsync(int id)
+    {
+        var movie = await _context.Movies.FindAsync(id);
+        return Ok(movie);
+    }
+
     [HttpGet("list")]
     public async Task<IActionResult> ListAsync()
     {
