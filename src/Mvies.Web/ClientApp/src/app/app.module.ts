@@ -43,25 +43,12 @@ const viewComponents = [
             path: 'new',
             component: MovieComponent
           },
-          
+
         ]
       },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      // {
-      //   path: '/movie',
-      //   component: MovieComponent,
-      //   children: [
-      //     {
-      //       path: 'new',
-      //       component: MovieComponent
-      //     },
-      //     {
-      //       path: ':id',
-      //       component: MovieComponent
-      //     }
-      //   ]
-      // },
+
     ])
   ],
   providers: [
