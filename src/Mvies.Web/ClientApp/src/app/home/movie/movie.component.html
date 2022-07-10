@@ -1,17 +1,23 @@
-<div class="d-flex">
-    <form #movieForm="ngForm" class="flex-fill" (submit)="create(movie)">
-        <div class="form-group mb-3">
-            <label for="name">Movie Name</label>
-            <input required [(ngModel)]="movie.name" type="text" name="name" id="name" class="form-control flex-fill"
-                placeholder="Enter Movie Name">
-        </div>
-        <div class="form-group mb-3">
-            <label for="description">Movie Description</label>
-            <textarea required [(ngModel)]="movie.description" type="text" name="description" id="description"
-                class="form-control" placeholder="Enter Movie Description"></textarea>
-        </div>
-        <div class="form-group d-flex d-flex-row justify-content-end">
-            <button [disabled]="movieForm.invalid" type="submit" class="btn btn-primary">Save</button>
-        </div>
-    </form>
+<div class="d-flex flex-row">
+    <div class="{{movie.id === 0 ? 'w-100' : 'w-50'}}">
+        <form #movieForm="ngForm" class="flex-fill" (submit)="create(movie)">
+            <div class="form-group mb-3">
+                <label for="name">Movie Name</label>
+                <input required [(ngModel)]="movie.name" type="text" name="name" id="name"
+                    class="form-control flex-fill" placeholder="Enter Movie Name">
+            </div>
+            <div class="form-group mb-3">
+                <label for="description">Movie Description</label>
+                <textarea required [(ngModel)]="movie.description" type="text" name="description" id="description"
+                    class="form-control" placeholder="Enter Movie Description"></textarea>
+            </div>
+            <div class="form-group d-flex d-flex-row justify-content-end">
+                <button [disabled]="movieForm.invalid" type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="movie.id > 0" class="w-50">
+        <racoon-comment [movieId]="movie.id"></racoon-comment>
+    </div>
+
 </div>

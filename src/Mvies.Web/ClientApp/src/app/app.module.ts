@@ -11,8 +11,11 @@ import { MovieComponent } from './home/movie/movie.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MovieService } from './services/movie.service';
+import { CommentComponent } from './home/movie/comment/comment.component';
+import { CommentService } from './services/comment.service';
 
 const viewComponents = [
+  CommentComponent,
   HomeComponent,
   MovieComponent
 ];
@@ -52,7 +55,8 @@ const viewComponents = [
     ])
   ],
   providers: [
-    MovieService
+    MovieService,
+    CommentService
   ],
   bootstrap: [AppComponent]
 })
