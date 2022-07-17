@@ -13,6 +13,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MovieService } from './services/movie.service';
 import { CommentComponent } from './home/movie/comment/comment.component';
 import { CommentService } from './services/comment.service';
+import { MovieResolver } from './home/movie/movie.resolver.route';
 
 const viewComponents = [
   CommentComponent,
@@ -40,7 +41,8 @@ const viewComponents = [
         children: [
           {
             path: ':id',
-            component: MovieComponent
+            component: MovieComponent,
+            resolve: { movie: MovieResolver }
           },
           {
             path: 'new',

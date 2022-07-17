@@ -1,6 +1,33 @@
 <div>
-    <div *ngFor="let comment of comments">
-        <div>{{comment.text}}</div>
-        <div>{{comment.rating}}</div>
+    <div *ngFor="let comment of comments" class="card mb-2">
+        <div class="card-header p-1">
+            <div class="d-flex w-100 justify-content-between">
+                <div>{{comment.createdBy}}</div>
+                <small>{{comment.rating}}</small>
+            </div>
+        </div>
+        <div class="card-body p-1">{{comment.text}}</div>
     </div>
+
+    <form #commentForm="ngForm" (submit)="create(newComment)">
+        <div class="card">
+            <div class="card-header d-flex w-100 justify-content-between p-1">
+                <div>New Comment Section</div>
+                <button [disabled]="commentForm.invalid" type="submit" class="btn btn-primary btn-sm">Add</button>
+            </div>
+            <div class="d-flex flex-column">
+                <div class="p-1">
+                    <div class="form-group mb-2">
+                        <textarea required [(ngModel)]="newComment.text" type="text" name="newComment" id="newComment"
+                            class="form-control p-2" placeholder="New Commen"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input value="3" [(ngModel)]="newComment.rating" type="range" class="form-range" min="0" max="5" id="customRange2">
+                    </div>
+                    {{newComment.rating}}
+                </div>
+            </div>
+        </div>
+    </form>
+
 </div>

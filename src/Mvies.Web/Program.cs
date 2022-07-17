@@ -1,10 +1,17 @@
+using Newtonsoft.Json;
 using Racoon.Moovies.DbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllersWithViews().;
+builder
+    .Services
+    .AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+    });
 builder
     .Services
     .AddLogging();
