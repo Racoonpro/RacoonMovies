@@ -30,4 +30,7 @@ export class CommentComponent implements OnInit {
         ).subscribe(result => this.comments = result);
     }
 
+    setRating = (value: number): void => {
+        this.newComment.rating = value;
+    }
 }

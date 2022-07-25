@@ -21,8 +21,14 @@
                         <textarea required [(ngModel)]="newComment.text" type="text" name="newComment" id="newComment"
                             class="form-control p-2" placeholder="New Commen"></textarea>
                     </div>
-                    <div class="form-group">
-                        <input value="3" [(ngModel)]="newComment.rating" type="range" class="form-range" min="0" max="5" id="customRange2">
+                    <div class="d-flex justify-content-end">
+                        <div class="btn-group" role="group" aria-label="Third group">
+                            <button (click)="setRating(1)" name="btnRating1" type="button" class="btn btn-info">1</button>
+                            <button (click)="setRating(2)" name="btnRating2" type="button" class="btn btn-info">2</button>
+                            <button (click)="setRating(3)" name="btnRating3" type="button" class="btn btn-info">3</button>
+                            <button (click)="setRating(4)" name="btnRating4" type="button" class="btn btn-info">4</button>
+                            <button (click)="setRating(5)" name="btnRating5" type="button" class="btn btn-info">5</button>
+                        </div>
                     </div>
                     {{newComment.rating}}
                 </div>
