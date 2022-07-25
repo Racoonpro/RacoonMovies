@@ -45,4 +45,5 @@ public class RacoonMoviesDbContext : Microsoft.EntityFrameworkCore.DbContext
 
     public DbSet<Movie> Movies { get; set; }
     public DbSet<Comment> Comments { get; set; }
+    public DbSet<MovieVisit> MovieVisits { get; set; }
 }

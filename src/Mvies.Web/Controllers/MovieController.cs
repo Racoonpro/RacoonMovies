@@ -7,7 +7,7 @@ namespace Racoon.Movies.Web.Controllers;
 
 [ApiController]
 [Route("api/movie")]
-public class MovieController: ControllerBase
+public class MovieController : ControllerBase
 {
     private readonly RacoonMoviesDbContext _context;
     public MovieController(RacoonMoviesDbContext context)
@@ -19,6 +19,8 @@ public class MovieController: ControllerBase
     public async Task<IActionResult> GetAsync(int id)
     {
         var movie = await _context.Movies.FindAsync(id);
+        await _context.MovieVisits.AddAsync(new MovieVisit { PointInTime = DateTime.UtcNow, MovieId = id});
+        await _context.SaveChangesAsync();
         return Ok(movie);
     }
 
@@ -36,7 +38,7 @@ public class MovieController: ControllerBase
             throw new InvalidOperationException("Unable to add movie.");
 
         movie.Comments = null!;
-        await  _context.Movies.AddAsync(movie);
+        await _context.Movies.AddAsync(movie);
         await _context.SaveChangesAsync();
 
         return Ok(movie);
