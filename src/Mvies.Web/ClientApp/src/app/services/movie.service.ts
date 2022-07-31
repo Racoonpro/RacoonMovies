@@ -21,4 +21,9 @@ export class MovieService {
     create = (movie: Movie): Observable<Movie> => {
         return this._http.post<Movie>(`/api/movie`, movie);
     }
+
+    search = (startsWith: string): Observable<Movie[]> => {
+        return this._http.get<Movie[]>(`/api/movie/search?query=${startsWith}`);
+    }
+
 }

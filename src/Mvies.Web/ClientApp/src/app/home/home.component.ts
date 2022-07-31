@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { debounce, debounceTime, mergeMap, tap } from 'rxjs/operators';
 import { MovieService } from '../services/movie.service';
 
 @Component({
@@ -12,6 +14,8 @@ export class HomeComponent implements OnInit {
   constructor(private _movieSvc: MovieService) {
   }
 
+  @ViewChild("searchbox") searchBox!: ElementRef;
+
   ngOnInit(): void {
     const movies$ = this._movieSvc.all();
     movies$.subscribe(movies => {
@@ -20,5 +24,12 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  ngAfterViewInit() {
+    const debounceEvent$ = fromEvent<KeyboardEvent>(this.searchBox.nativeElement, "keyup");
+    debounceEvent$.pipe(
+      debounceTime(1200),
+      mergeMap((value) => this._movieSvc.search((<HTMLInputElement>value.target).value))
+      ).subscribe((results) => this.movies = results)
 
+  }
 }
