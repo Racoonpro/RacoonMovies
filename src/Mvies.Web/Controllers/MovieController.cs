@@ -27,7 +27,10 @@ public class MovieController : ControllerBase
     [HttpGet("list")]
     public async Task<IActionResult> ListAsync()
     {
-        var movies = await _context.Movies.ToListAsync();
+        var movies = await _context
+            .Movies
+            .Include(x=>x.MovieVisits)
+            .ToListAsync();
         return Ok(movies);
     }
 

@@ -41,6 +41,12 @@ public class RacoonMoviesDbContext : Microsoft.EntityFrameworkCore.DbContext
             new Comment { Id = 2, MovieId = 3, Text = "Loved this movie here", Rating = 3, CreatedTime = DateTime.UtcNow, CreatedBy = "Kiryl" }
         );
 
+        modelBuilder.Entity<MovieVisit>().HasData(
+            new MovieVisit {Id = 1, MovieId = 3, CreatedTime = DateTime.UtcNow, CreatedBy = "Kiryl"},
+            new MovieVisit {Id = 2, MovieId = 3, CreatedTime = DateTime.UtcNow, CreatedBy = "Kiryl"},
+            new MovieVisit {Id = 3, MovieId = 3, CreatedTime = DateTime.UtcNow, CreatedBy = "Kiryl"}
+        );
+
     }
 
     public DbSet<Movie> Movies { get; set; }
